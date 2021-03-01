@@ -31,12 +31,7 @@ function App() {
     setTodos(newArr);
   }
 
-  const editTask = (id, value) =>{
-    // const newArr = [...todos];
-    // newArr[id].name = value;
-    // setTodos(newArr);
-    // console.log(id);
-  }
+
 
   const pending = () =>{
     const newArr = [...todos];
@@ -72,11 +67,13 @@ function App() {
     setTodos(a);
   }
 
+ 
+
   return (
     <div className="App">
         <h3 className="header-text">Todo App</h3>
-        <HeaderApp editTask = {editTask} addTask = {addTask} />
-        <ListItem editTask = {editTask} doneTask = {doneTask} deleteTask = {deleteTask} todos = {todos} />
+        <HeaderApp  todos = {todos} addTask = {addTask} />
+        <ListItem  doneTask = {doneTask} deleteTask = {deleteTask} todos = {todos} />
         <FooterApp completed = {completed} all = {all} pending = {pending}  todos = {todos} />
     </div>
   );

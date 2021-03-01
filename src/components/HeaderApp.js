@@ -2,9 +2,13 @@ import React, {useState} from 'react'
 import { Input } from 'antd';
 
 const { Search } = Input;
-export default function HeaderApp({addTask}) {
+export default function HeaderApp({addTask, todos}) {
+
 
     const [input, setInput] = useState('');
+
+    
+
 
     const handleAdd = () => {
         if(input === ''){

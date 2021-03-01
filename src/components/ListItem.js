@@ -1,30 +1,7 @@
-// import React from 'react'
-
-// export default function ListItem( {todos, deleteTask, doneTask} ) {
-
-//     return (
-//         <div className = "box-list">
-//             {todos.map((task, index) => {
-//                 return(
-//                     <div key = {index} className = 'taskLine' >
-//                         <p  className = "task-name"  style={{  textDecoration: task.done ? "line-through" : ""}} >{task.name}</p>
-//                         <div className = "btn-control">
-//                             <button onClick = {() => doneTask(index)} >{task.done ? "Not Done" : "Done"}</button>
-//                             <button >Edit</button>
-//                             <button onClick = {() => deleteTask(index)}>Delete</button>
-//                         </div>
-//                     </div>
-//                 )
-//             })}
-//         </div>
-//     )
-// }
-
-
 
 import React from 'react'
 
-export default function ListItem( {todos, deleteTask, doneTask} ) {
+export default function ListItem( {todos, deleteTask, doneTask, handleEdit} ) {
 
     return (
         <div className = "box-list">
@@ -33,10 +10,9 @@ export default function ListItem( {todos, deleteTask, doneTask} ) {
                     <div key = {index}>
                         {task.show && (
                             <div  className = 'taskLine' >
-                                <p  className = "task-name"  style={{  textDecoration: task.done ? "line-through" : ""}} >{task.name}</p>
+                                <input  className = "task-name" onClick = {(e) => console.log(index)}  style={{  textDecoration: task.done ? "line-through" : ""}} value = {task.name} />
                                 <div className = "btn-control">
                                     <button onClick = {() => doneTask(index)} >{task.done ? "Not Done" : "Done"}</button>
-                                    <button >Edit</button>
                                     <button onClick = {() => deleteTask(index)}>Delete</button>
                                 </div>
                             </div>
