@@ -1,8 +1,8 @@
 
 import React from 'react'
-
-export default function ListItem( {todos, deleteTask, doneTask, handleEdit} ) {
-
+import { Button } from 'antd';
+export default function ListItem( {todos, deleteTask, doneTask, editTask} ) {
+  
     return (
         <div className = "box-list">
             {todos.map((task, index) => {
@@ -10,10 +10,16 @@ export default function ListItem( {todos, deleteTask, doneTask, handleEdit} ) {
                     <div key = {index}>
                         {task.show && (
                             <div  className = 'taskLine' >
-                                <input  className = "task-name" onClick = {(e) => console.log(index)}  style={{  textDecoration: task.done ? "line-through" : ""}} value = {task.name} />
+                                <span style={{  textDecoration: task.done ? "line-through" : ""}} >🤟</span>
+                                <input  
+                                    className = "task-name" 
+                                    style={{  textDecoration: task.done ? "line-through" : ""}}  
+                                    value = {task.name}
+                                    onChange = {(e) => editTask(index, e.target.value)} 
+                                /> 
                                 <div className = "btn-control">
-                                    <button onClick = {() => doneTask(index)} >{task.done ? "Not Done" : "Done"}</button>
-                                    <button onClick = {() => deleteTask(index)}>Delete</button>
+                                    <Button type="primary" onClick = {() => doneTask(index)} >{task.done ? "Not Done" : "Done"}</Button>
+                                    <Button type="primary" danger onClick = {() => deleteTask(index)}>Delete</Button>
                                 </div>
                             </div>
                         )}
@@ -23,3 +29,4 @@ export default function ListItem( {todos, deleteTask, doneTask, handleEdit} ) {
         </div>
     )
 }
+// 🤟

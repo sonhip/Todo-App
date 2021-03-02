@@ -2,13 +2,10 @@ import React, {useState} from 'react'
 import { Input } from 'antd';
 
 const { Search } = Input;
-export default function HeaderApp({addTask, todos}) {
+export default function HeaderApp({addTask}) {
 
 
     const [input, setInput] = useState('');
-
-    
-
 
     const handleAdd = () => {
         if(input === ''){
@@ -20,12 +17,11 @@ export default function HeaderApp({addTask, todos}) {
     }
    
     return (
-        <div>
+        <div className ="input-task">
              <Search
                 onChange = {(e)=> setInput(e.target.value)}
                 value = {input}
                 placeholder="Type something..."
-                allowClear
                 enterButton="Add"
                 size="large"
                 onSearch = {handleAdd}
